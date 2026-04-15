@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Александра Ветрова | Портфолио фотографа</title>
+  <!-- Шрифты: Cormorant Garamond (элегантный с засечками) + Raleway (современный гротеск) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <!-- Font Awesome для иконок -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      background-color: #fafafa;
+      color: #1e1e1e;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .serif {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* Кнопки */
+    .btn {
+      display: inline-block;
+      background: transparent;
+      border: 1.5px solid #1e1e1e;
+      color: #1e1e1e;
+      padding: 14px 38px;
+      border-radius: 0px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.35s ease;
+      cursor: pointer;
+      font-family: 'Raleway', sans-serif;
+      background-color: rgba(255,255,255,0.0);
+      backdrop-filter: blur(0);
+    }
+
+    .btn-dark {
+      background: #1e1e1e;
+      color: white;
+      border: 1.5px solid #1e1e1e;
+    }
+
+    .btn-dark:hover {
+      background: transparent;
+      color: #1e1e1e;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .btn-outline:hover {
+      background: #1e1e1e;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    /* Шапка */
+    header {
+      padding: 30px 0;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #1e1e1e;
+      text-decoration: none;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      background: rgba(250,250,250,0.6);
+      padding: 6px 20px;
+      backdrop-filter: blur(8px);
+    }
+
+    .logo i {
+      font-size: 1.6rem;
+      margin-right: 6px;
+      color: #7a5b4b;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 48px;
+      background: rgba(250,250,250,0.4);
+      padding: 14px 40px;
+      backdrop-filter: blur(10px);
+      border-radius: 0;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1e1e1e;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #7a5b4b;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 120px 0 80px;
+      background: linear-gradient(135deg, #f5f2ef 0%, #eae3dd 50%, #f0eae4 100%);
+    }
+
+    .hero .container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 50px;
+    }
+
+    .hero-content {
+      flex: 1 1 400px;
+    }
+
+    .hero-tag {
+      font-size: 0.9rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: #5e4b40;
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(3.5rem, 9vw, 5.5rem);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      font-weight: 400;
+      color: #1e1e1e;
+    }
+
+    .hero-content h1 i {
+      color: #7a5b4b;
+      font-size: 0.8em;
+    }
+
+    .hero-desc {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      color: #3a302b;
+      max-width: 550px;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    .stat-item h3 {
+      font-size: 2.5rem;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .stat-item p {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.8rem;
+      color: #5e4b40;
+    }
+
+    .hero-image {
+      flex: 1 1 400px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-image i {
+      font-size: 260px;
+      color: #2e2a27;
+      opacity: 0.9;
+      filter: drop-shadow(0 30px 20px rgba(0,0,0,0.08));
+    }
+
+    /* Секции */
+    section {
+      padding: 110px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .section-header h2 {
+      font-size: 3.8rem;
+      margin-bottom: 15px;
+      font-weight: 400;
+      letter-spacing: 2px;
+    }
+
+    .section-header h2 i {
+      color: #7a5b4b;
+      margin: 0 10px;
+      font-size: 2.8rem;
+    }
+
+    .section-subhead {
+      color: #5a4d45;
+      font-weight: 300;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      font-style: italic;
+    }
+
+    /* Галерея портфолио */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      background: #d4c8be;
+      cursor: pointer;
+      transition: all 0.4s;
+    }
+
+    .portfolio-img {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.6s;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 25px;
+    }
+
+    .portfolio-overlay {
+      background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+      width: 100%;
+      padding: 15px 20px;
+      color: white;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: 0.3s;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .portfolio-item:hover .portfolio-img {
+      transform: scale(1.05);
+    }
+
+    .portfolio-overlay h4 {
+      font-size: 2rem;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    .portfolio-overlay p {
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* Услуги */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+    }
+
+    .service-card {
+      text-align: center;
+      padding: 30px 20px;
+      background: #ffffffd6;
+      backdrop-filter: blur(4px);
+      border: 1px solid #e2d8d0;
+      transition: 0.25s;
+    }
+
+    .service-card:hover {
+      background: white;
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.05);
+      transform: translateY(-8px);
+    }
+
+    .service-icon {
+      font-size: 54px;
+      color: #7a5b4b;
+      margin-bottom: 28px;
+    }
+
+    .service-card h3 {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .service-price {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #7a5b4b;
+      margin: 18px 0;
+    }
+
+    /* Отзывы */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .testimonial {
+      background: white;
+      padding: 38px 30px;
+      border: 1px solid #e2d8d0;
+      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.02);
+    }
+
+    .testimonial i.fa-quote-left {
+      color: #7a5b4b;
+      font-size: 28px;
+      opacity: 0.5;
+      margin-bottom: 20px;
+    }
+
+    .testimonial p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .customer {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .customer-avatar {
+      width: 56px;
+      height: 56px;
+      background: #d9cdc4;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #3d3029;
+      font-size: 28px;
+    }
+
+    .customer-info h5 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* Контакты */
+    .contact-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      background: #ffffff;
+      border: 1px solid #e2d8d0;
+    }
+
+    .contact-form {
+      flex: 1 1 350px;
+      padding: 60px 50px;
+    }
+
+    .contact-form h3 {
+      font-size: 2.8rem;
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+
+    .input-group {
+      margin-bottom: 25px;
+    }
+
+    .input-group input, .input-group textarea {
+      width: 100%;
+      padding: 14px 0;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      font-family: 'Raleway', sans-serif;
+      font-size: 1rem;
+      background: transparent;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    .input-group input:focus, .input-group textarea:focus {
+      border-bottom-color: #1e1e1e;
+    }
+
+    .contact-info-block {
+      flex: 1 1 300px;
+      background: #f4efeb;
+      padding: 60px 50px;
+    }
+
+    .contact-detail {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .contact-icon {
+      font-size: 26px;
+      color: #5e4b40;
+      width: 40px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 24px;
+      margin-top: 45px;
+    }
+
+    .social-links a {
+      color: #2e2a27;
+      font-size: 24px;
+      transition: 0.2s;
+    }
+
+    .social-links a:hover {
+      color: #7a5b4b;
+    }
+
+    /* Футер */
+    footer {
+      background: #1e1e1e;
+      color: #bcb2aa;
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      color: #e3dbd4;
+      letter-spacing: 6px;
+    }
+
+    /* Адаптив */
+    @media (max-width: 800px) {
+      .header-inner {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .nav-links {
+        gap: 25px;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 12px 25px;
+      }
+      .hero {
+        padding-top: 180px;
+        text-align: center;
+      }
+      .hero-content {
+        text-align: center;
+      }
+      .hero-stats {
+        justify-content: center;
+      }
+      .hero-desc {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      section {
+        padding: 70px 0;
+      }
+      .container {
+        padding: 0 25px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section-header h2 {
+        font-size: 2.8rem;
+      }
+    }
+
+    /* фоны для портфолио (имитация фото) */
+    .img1 { background-image: linear-gradient(0deg, #3a2c2490, #5b463c70), url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 130\'%3E%3Ccircle cx=\'50\' cy=\'45\' r=\'20\' fill=\'%23b1a094\'/%3E%3Crect x=\'35\' y=\'70\' width=\'30\' height=\'40\' rx=\'5\' fill=\'%23998478\'/%3E%3C/svg%3E'); }
+    .img2 { background-image: linear-gradient(0deg, #2f262180, #5a4a3f70), url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 130\'%3E%3Crect x=\'20\' y=\'30\' width=\'60\' height=\'70\' rx=\'10\' fill=\'%23ac988b\'/%3E%3C/svg%3E'); }
+    .img3 { background-image: linear-gradient(0deg, #4f3f3570, #6e594b70), url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 130\'%3E%3Cpath d=\'M50 20 L70 60 L30 60 Z\' fill=\'%23968070\'/%3E%3C/svg%3E'); }
+    .img4 { background-image: linear-gradient(0deg, #3a2e2680, #7b655780), url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 130\'%3E%3Ccircle cx=\'50\' cy=\'65\' r=\'30\' fill=\'%23b3a094\'/%3E%3C/svg%3E'); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a href="#" class="logo">
+      <i class="fas fa-camera-retro"></i> VETROVA
+    </a>
+    <div class="nav-links">
+      <a href="#portfolio">Портфолио</a>
+      <a href="#services">Услуги</a>
+      <a href="#testimonials">Отзывы</a>
+      <a href="#contact">Контакты</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-tag"><i class="fas fa-aperture" style="margin-right: 8px;"></i>фотограф в москве</div>
+      <h1>Александра<br><i class="fas fa-camera"></i> Ветрова</h1>
+      <p class="hero-desc">
+        Эмоции в каждом кадре — свадьбы, портреты, семейные истории.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <h3>7+</h3>
+          <p>лет опыта</p>
+        </div>
+        <div class="stat-item">
+          <h3>200+</h3>
+          <p>счастливых съёмок</p>
+        </div>
+      </div>
+      <div style="margin-top: 40px;">
+        <a href="#portfolio" class="btn btn-dark"><i class="fas fa-images" style="margin-right: 8px;"></i>Смотреть работы</a>
+        <a href="#contact" class="btn btn-outline" style="margin-left: 15px;">Связаться</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <i class="fas fa-camera"></i>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="container">
+    <div class="section-header">
+      <h2><i class="fas fa-star"></i> Избранные проекты <i class="fas fa-star"></i></h2>
+      <p class="section-subhead">Истории, рассказанные через объектив</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <div class="portfolio-img img1">
+          <div class="portfolio-overlay">
+            <h4>Свадьба</h4>
+            <p>Анна + Михаил</p>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-img img2">
+          <div class="portfolio-overlay">
+            <h4>Love Story</h4>
+            <p>Елена & Дмитрий</p>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-img img3">
+          <div class="portfolio-overlay">
+            <h4>Портрет</h4>
+            <p>Алиса, актриса</p>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-img img4">
+          <div class="portfolio-overlay">
+            <h4>Семейная</h4>
+            <p>Семья Ивановых</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 50px;">
+      <a href="#" class="btn btn-outline"><i class="fab fa-instagram"></i> Больше в Instagram</a>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="background: #f6f3f0;">
+  <div class="container">
+    <div class="section-header">
+      <h2><i class="fas fa-gem"></i> Услуги и цены <i class="fas fa-gem"></i></h2>
+      <p class="section-subhead">Индивидуальный подход к каждой съёмке</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-heart"></i></div>
+        <h3>Свадебная</h3>
+        <div class="service-price">от 45 000 ₽</div>
+        <p>Полный день, 400+ фото, ретушь, онлайн-галерея.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-user"></i></div>
+        <h3>Портретная</h3>
+        <div class="service-price">от 12 000 ₽</div>
+        <p>Индивидуальная или парная съёмка в студии/на природе.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-users"></i></div>
+        <h3>Семейная</h3>
+        <div class="service-price">от 15 000 ₽</div>
+        <p>Тёплые кадры с близкими, до 5 человек.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-video"></i></div>
+        <h3>Love Story</h3>
+        <div class="service-price">от 18 000 ₽</div>
+        <p>Романтичная прогулка, искренние эмоции.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <h2><i class="fas fa-comment"></i> Тёплые слова <i class="fas fa-comment"></i></h2>
+      <p class="section-subhead">Что говорят мои клиенты</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <i class="fas fa-quote-left"></i>
+        <p>Саша — настоящий художник! Свадебные фото превзошли все ожидания, такие живые и нежные. Спасибо!</p>
+        <div class="customer">
+          <div class="customer-avatar"><i class="fas fa-user-circle"></i></div>
+          <div class="customer-info">
+            <h5>Мария К.</h5>
+            <span>свадьба, июнь 2025</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <i class="fas fa-quote-left"></i>
+        <p>Очень комфортно на съёмке, Александра направляет, но не давит. Портреты получились стильные и естественные.</p>
+        <div class="customer">
+          <div class="customer-avatar"><i class="fas fa-user-tie"></i></div>
+          <div class="customer-info">
+            <h5>Иван П.</h5>
+            <span>портретная съёмка</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <i class="fas fa-quote-left"></i>
+        <p>Семейная фотосессия прошла легко, даже мужу понравилось :) Фотографии теперь украшают наш дом.</p>
+        <div class="customer">
+          <div class="customer-avatar"><i class="fas fa-user-astronaut"></i></div>
+          <div class="customer-info">
+            <h5>Ольга С.</h5>
+            <span>семейная съёмка</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding-bottom: 60px;">
+  <div class="container">
+    <div class="section-header">
+      <h2><i class="fas fa-envelope"></i> Связаться со мной <i class="fas fa-envelope"></i></h2>
+      <p class="section-subhead">Оставьте заявку, и я отвечу в течение дня</p>
+    </div>
+    <div class="contact-wrapper">
+      <div class="contact-form">
+        <h3>Напишите мне</h3>
+        <form>
+          <div class="input-group">
+            <input type="text" placeholder="Ваше имя" required>
+          </div>
+          <div class="input-group">
+            <input type="email" placeholder="Email / Телефон" required>
+          </div>
+          <div class="input-group">
+            <textarea rows="3" placeholder="Опишите вашу идею..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-dark" style="margin-top: 10px;"><i class="fas fa-paper-plane"></i> Отправить</button>
+        </form>
+      </div>
+      <div class="contact-info-block">
+        <div class="contact-detail">
+          <div class="contact-icon"><i class="fas fa-map-pin"></i></div>
+          <div><strong>Москва</strong><br>и выезд по России</div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+          <div><strong>+7 (916) 123-45-67</strong><br>WhatsApp / Telegram</div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon"><i class="fas fa-envelope-open-text"></i></div>
+          <div>vetrova.photo@mail.ru</div>
+        </div>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-telegram"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-logo">VETROVA PHOTO</div>
+    <p>© 2026 Александра Ветрова. Все права защищены.</p>
+    <p style="letter-spacing: 3px; font-size: 0.8rem;"><i class="fas fa-camera"></i> запечатлевая моменты</p>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === "#") return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  })();
+</script>
+</body>
+</html>
